@@ -1,0 +1,49 @@
+* {
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+}
+
+header a {
+    text-align: left;
+    margin: auto;
+    padding-right: 400px;
+}
+
+header h3 {
+    text-align: right;
+    padding-left: 350px;
+    padding-right: 50px;
+    margin: auto;
+}
+
+main {
+    margin-top: 100px;
+}
+
+.question-container {
+    display: grid;
+    text-align: center;
+    margin: auto;
+    padding: 0 300px;
+}
+
+h1 {
+    font-style: bold;
+}
+
+#btn-start {
+    margin: 0 150px;
+    font-size: 18px;
+    border-radius: 5px;
+    background: purple;
+    color: white;
+    border: none;
+}
+
+#btn-start:hover {
+    background: plum;
+}
