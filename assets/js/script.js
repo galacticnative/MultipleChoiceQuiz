@@ -1,70 +1,80 @@
-var score = []
-var questions = []
-var timer = 0;
 
-timerEl = document.getElementById('timer');
-startBtn = document.getElementById('btn-start');
-questionsEl = document.getElementById('question-page')
+var time = 150;
+var score = 0;
+
+var timerEl = document.querySelector("#timer");
+var startBtnEl = document.querySelector("#btn-start");
+var questionListEl = document.querySelector("#question-list");
 
 
 var questions = [ 
 {
-    QuestionOne = "This is question 1. What does CSS stand for?",
-    AnswerOne = "B. Cascading Style Sheets",
-    OptionOne = "A. Computer Sheet Style",
-    OptionTwo = "B. Cascading Style Sheets",
-    OptionThree = "C. Crystal Style Sheet",
-    OptionFour = "D. Cascading Sheet Style",
+    question: "This is question 1. What does CSS stand for?",
+    option: "A. Computer Sheet Style",
+    answer: "B. Cascading Style Sheets",
+    option: "C. Crystal Style Sheet",
+    option: "D. Cascading Sheet Style",
 },
 {
-    QuestionTwo = "This is Question 2.",
-    AnswerTwo = "A. is the answer",
-    OptionOne = "A. some text",
-    OptionTwo = "B. some text",
-    OptionThree = "C. some text",
-    OptionFour = "D. some text",
+    question: "This is Question 2.",
+    answer: "A. some text",
+    option: "B. some text",
+    option: "C. some text",
+    option: "D. some text",
 },
 {
-    QuestionThree = "This is Question 3.",
-    AnswerThree = "D. is the answer",
-    OptionOne = "A. some text",
-    OptionTwo = "B. some text",
-    OptionThree = "C. some text",
-    OptionFour = "D. some text",
+    question: "This is Question 3.",
+    option: "A. some text",
+    option: "B. some text",
+    option: "C. some text",
+    answer: "D. some text",
 },
-];    
+{
+    question: "This is Question 4.",
+    option: "A. some text",
+    option: "B. some text",
+    answer: "C. some text",
+    option: "D. some text",
+},
+{
+    question: "This is Question 5.",
+    option: "A. some text",
+    option: "B. some text",
+    option: "C. some text",
+    answer: "D. some text",
+},
+];
 
-var timer = function() {
-    var timeLeft = 150;
+var startQuiz = function() {
+    
+    for (var i = 0; i < questions.length; i++) {
+        var listEl = document.createElement("li");
+        var buttonEl = document.createElement("button");
+        listEl.textContent = questions[i];
+        listEl.appendChild(buttonEl);
+        buttonEl.appendChild(questionListEl);
 
-    var timeInterval = setInterval(function() {
-        if (timeLeft === 150) {
-            timeInterval.textContent = timeLeft + " seconds remain";
-            timeLeft--;
-            document.getElementById('timer').innerHTML = timeInterval;
-            //displayQuestion();s
+        if (questions[i].option === true) {
+            score--;
+            questions++;
+            alert("Wrong!");
+        } else (questions[i].answer === true) {
+            score++;
+            questions++;
+            alert("Correct!");
         }
-        else {
-            if (timeLeft === 0) {
-                timerEl.textContent = '';
-                clearInterval(timeInterval);
-            }
-        }
-    }, 1000);
+        
+    }
+    timer();
 }
 
-// var displayQuestion = function() {
-//     var questionCount = 0;
+var timer = function() {
+    time--;
+    timerEl.textContent = time
+    if (time === 0) {
+        clearInterval(timerStart);
+    }
+}
+var timerStart = setInterval(timer, 1000);
 
-//     var questInterval = setInterval(function() {
-//         if (questions[questionCount] === undefined) {
-//             clearInterval(questInterval);
-//         }
-//         else {
-//             questionsEl.textContent = sentence[questionCount];
-//             questionCount++
-//         }
-//     }, 1000);
-// }
-
-startBtn.onclick = timer;
+startBtnEl.addEventListener("click", startQuiz());
