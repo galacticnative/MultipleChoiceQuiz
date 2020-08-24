@@ -32,6 +32,10 @@ h1 {
     font-style: bold;
 }
 
+#ul-list {
+    list-style-type: none;
+}
+
 #btn-start {
     margin: 0 150px;
     font-size: 18px;
@@ -44,3 +48,17 @@ h1 {
 #btn-start:hover {
     background: plum;
 }
+
+#btn-options {
+    margin: 0 150px;
+    font-size: 18px;
+    border-radius: 5px;
+    background: purple;
+    color: white;
+    border: none;
+    width: 300px;
+}
+
+ #btn-options:hover {
+     background: plum;
+ }

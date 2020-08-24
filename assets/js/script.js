@@ -18,7 +18,7 @@ var questions = [
 {
     question: "This is Question 2. String Values must be enclosed within _____ when being assigned to variables.",
     options: ["curly brackets", "commas", "quotes", "parentheses"],
-    answer: "curly brackets",
+    answer: "quotes",
 },
 {
     question: "This is Question 3. Arrays in JavaScript can be used to store _____.",
@@ -44,6 +44,7 @@ var startQuiz = function() {
     var answerType = questions[questionStart].answer;
     var optionsType = questions[questionStart].options;
     var ulEl = document.createElement("ul");
+    ulEl.setAttribute("id", "ul-list");
 
     questionsEl.innerHTML = '';
 
@@ -52,7 +53,9 @@ var startQuiz = function() {
 
             var listEl = document.createElement("li");
             var buttonEl = document.createElement("button");
-            listEl.textContent = optionsType[i];
+            buttonEl.textContent = optionsType[i];
+            buttonEl.setAttribute("value", i);
+            buttonEl.setAttribute("id", "btn-options")
             listEl.appendChild(buttonEl);
             ulEl.appendChild(listEl);
             buttonEl.onclick = selectOption
