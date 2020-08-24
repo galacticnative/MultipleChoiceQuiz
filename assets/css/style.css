@@ -22,9 +22,6 @@ header h4 {
 
 main {
     margin-top: 100px;
-}
-
-.question-container {
     display: grid;
     text-align: center;
     margin: auto;
